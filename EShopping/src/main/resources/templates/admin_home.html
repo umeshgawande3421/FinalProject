@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Page</title>
+
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<style>
+.marginUp {
+	margin-top: 20px;
+}
+
+.regLog {
+	margin-left: 20px;
+}
+
+.sinmar {
+	margin-left: 100px;
+}
+
+.name {
+	color: white;
+	z-index: 1000;
+}
+body{
+background-image: url('https://botsify.com/blog/wp-content/uploads/2020/03/cover-1024x597.png'); 
+background-size:100%; background-repeat: no-repeat, repeat;
+}
+</style>
+</head>
+<body>
+	<header>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" th:href="@{/usersadmin}">EShoppers</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" th:href="@{/usersadmin}">Home</a></li>
+					</ul>
+
+
+					<!-- <a class="btn btn-primary" href="./Login.html">Login</a> -->
+					<div class="mx-3 regLog">
+						<form th:action="@{/logout}" method="post">
+							<p class="name">
+								Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+							</p>
+							<input class="btn btn-primary sinmar" type="submit"
+								value="Sign Out" />
+							<!-- <a class="btn btn-primary regLog" th:href="@{/register}">Registration</a> -->
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div>
+		<table>
+			<br>
+			<tr>
+				<td><a th:href="@{/allProducts}" class="btn btn-light"><i
+						class="fas fa-user-plus ml-2"></i>All Products</a></td>
+				<td><a th:href="@{/allOrders}" class="btn btn-light"><i
+						class="fas fa-user-plus ml-2"></i>All Orders</a></td>
+				<td><a th:href="@{/allusers}" class="btn btn-light"><i
+						class="fas fa-user-plus ml-2"></i>All Customers</a></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

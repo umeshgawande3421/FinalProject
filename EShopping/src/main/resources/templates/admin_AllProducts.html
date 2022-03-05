@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Product All</title>
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  	<!-- Add icon library -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  	<!-- FontAwsome cdn  -->
+  	<script src="https://kit.fontawesome.com/c4254e24a8.js"> </script>
+
+  	<!-- Css linking -->
+  	<link rel="stylesheet" href="./css/adminstyle.css">
+<style type="text/css">
+body{
+background-image: url('https://botsify.com/blog/wp-content/uploads/2020/03/cover-1024x597.png'); 
+background-size:100%; background-repeat: no-repeat, repeat;
+}
+</style>
+</head>
+<body >
+<header>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" th:href="@{/usersadmin}">EShoppers</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" th:href="@{/usersadmin}">Home</a></li>
+					</ul>
+					<!-- <a class="btn btn-primary" href="./Login.html">Login</a> -->
+					<div class="mx-3 regLog">
+						<form th:action="@{/logout}" method="post">
+							<p class="name" style="color: white">
+								Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+							</p>
+							<input class="btn btn-primary sinmar" type="submit"
+								value="Sign Out" />
+							<!-- <a class="btn btn-primary regLog" th:href="@{/register}">Registration</a> -->
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</nav>
+	</header>
+
+<!-- <div class="container my-2"
+		<div class="card"> -->
+			<div class="card-body"> 
+<div align="center">
+    <h1>Product List</h1>
+    <a th:href="@{/new}" class="btn btn-primary"><i
+	class="fas fa-user-plus ml-2"> Create New Products</i></a>
+    <br/><br/>
+    <table border="1" cellpadding="10" >
+        <thead>
+            <tr>
+            	<!-- <th>Photos</th> -->
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Color</th>
+                <th>Specification</th>
+                <th>Manufacture</th>
+                <th>quantity</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${listProducts}">
+            	<!-- <td><img src="" height="100" width="100">Photos</td> -->
+                <td th:text="${product.productId}">Product ID</td>
+                <td th:text="${product.productname}">Name</td>
+                <td th:text="${product.price}">Price</td>
+                 <td th:text="${product.color}">Color</td>
+                <td th:text="${product.specification}">Specification</td>
+                <td th:text="${product.manufacture}">Manufacture</td>
+                <td th:text="${product.quantity}">quantity</td>
+				<td><a
+					th:href="@{'/editProducts/' + ${product.productId}}"
+					class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+				<td><a
+					th:href="@{/deleteProducts/{id}(id=${product.productId})}"
+					class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+				</tr>
+        </tbody>
+        <!-- th:action="@{/students/s_update/{id}(id=${student.id})}" th:object="${student}" -->
+    </table>
+</div> 
+</div>
+</body>
+</html>

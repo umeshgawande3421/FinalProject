@@ -1,0 +1,27 @@
+/* Navbar */
+.navButtonSpace{
+    margin-left: 20px;
+}
+
+/* AdminProductEditList */
+body{
+    background-color: azure;
+}
+table,
+th,
+td {
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.productListHeading, .productListTable{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+/* ProductEditFrom */
+.producteditForm, .producteditFormHeading{
+    width: 50%;
+    margin: 10px;
+}

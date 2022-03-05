@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Welcome</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<style>
+.marginUp {
+	margin-top: 20px;
+}
+
+.regLog {
+	margin-left: 20px;
+}
+body{
+background-image: url('https://botsify.com/blog/wp-content/uploads/2020/03/cover-1024x597.png'); 
+background-size:100%; background-repeat: no-repeat, repeat;
+}
+</style>
+</head>
+<body>
+<header>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" th:href="@{/main}">EShoppers</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" th:href="@{/main}">Home</a></li>
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" th:href="@{/usersadmin}">Admin Login</a></li>
+					</ul>
+					
+					<!-- <a class="btn btn-primary" href="./Login.html">Login</a> -->
+					<div class="mx-3 regLog">
+						<a class="btn btn-primary" th:href="@{/login}">User Login</a> <a
+							class="btn btn-primary regLog" th:href="@{/register}">Registration</a>
+					</div>
+
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container text-center">
+		<h1>Welcome To E-Shoppers</h1>
+		<!-- <h3><a th:href="@{/usersadmin}">Admin</a></h3>
+		<h3><a th:href="@{/register}">Register</a></h3>
+		<h3><a th:href="@{/login}">Customer-Login</a></h3> -->
+	</div>
+	
+</body>
+</html>
